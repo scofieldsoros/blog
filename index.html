@@ -61,6 +61,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-logrotate" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/16/logrotate/" class="article-date">
+  <time datetime="2015-09-16T02:10:03.000Z" itemprop="datePublished">2015-09-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/16/logrotate/">logrotate</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="logrotate_配置">logrotate 配置</h3><p>logrotate使用简单，直接在/etc/logrotate.d/ 下添加一个配置文件即可，以apache httpd 为例：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/var/log/httpd/*log &#123;&#10;&#9; missingok&#10;&#9; notifempty&#10;&#9; sharedscripts&#10;&#9; delaycompress&#10;&#9; postrotate&#10;&#9;&#9;  /bin/systemctl reload httpd.service &#62; /dev/null 2&#62;/dev/null || true&#10;&#9; endscript&#10;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>logrotate的配置很简答，但需注意：</p>
+<ol>
+<li><p>logrotate默认是一天执行一次，在/etc/cron.daily/logrotate 有其执行脚本，作为定时任务执行。可以通过执行logrotate /etc/logrotate.conf 来手动执行rotate，注意，-f 是–force的意思，而不是–file的意思，使用-f 会强制执行生成新的rotate.<br><em>Normally, logrotate is run as a daily cron job. It will not modify a log multiple times in one day unless the criterion for that log is based on the log’s size and logrotate is being run multiple times each day, or unless the -f or –force option is used.</em></p>
+</li>
+<li><p>另外，logrotate 本身没有daemon 在运行，其执行必须要等到某个地方调用logrotate才会跑，正常情况下只有手动调用logrotate命令或者到/etc/cron.daily下的定时任务执行的时候才会执行。</p>
+</li>
+</ol>
+<h3 id="weekly、daily、size、minsize_的关系">weekly、daily、size、minsize 的关系</h3><ul>
+<li>若未使用weekly、daily等时间中的任何一个，由于/etc/logrotate.conf中定义了weekly，因此默认会采用weekly，后面的配置会覆盖前面的配置</li>
+<li>daily、weekly是通过生成的上个rotate文件的创建时间来确定下一个打包时间的，若当前进行rotate的时间与上一次打包的时间间隔超过了设置的时间间隔(daily)，则会进行rotate，否则不会。</li>
+<li>size：若采用了size，会优先根据size的大小来进行rotate，只要当前日志文件的size超过了设定的size，则会进行打包，而不管是否达到了daily所设定的时间间隔。</li>
+<li><p>minsize： manual手册是这么解释的：<br> <strong>minsize size</strong><br> <em>Log files are rotated when they grow bigger than size bytes, but not before the additionally specified time interval (daily, weekly, monthly, or yearly). The related size option is similar except that it is mutually exclusive with the time interval options, and it causes log files to be rotated without regard for the last rotation time. When minsize is used, both the size and timestamp of a log file are considered.</em></p>
+<p> 意思是，minsize既考虑日志文件的大小，又考虑时间间隔，必须等两者均满足条件时才会执行。<br> 与size不同的地方就在于此，size是只要大小超过限制，则只要logrotate被调用便会执行，而minsize必须要大小超过限制且距离上次打包时间超过间隔时间才会打包。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.sleepbear.com/2015/09/16/logrotate/" data-id="ciem5qw1y0002h2x28pq4r1gi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-中秋国庆川西甘南" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/09/13/中秋国庆川西甘南/" class="article-date">
@@ -120,11 +172,18 @@
 门票等其他: <span class="number">1000</span>
 
 合计: <span class="number">7758.5</span>
+
+租车费: <span class="number">2351</span>
+火车票: <span class="number">363.5</span>（杭州--&gt;长沙) + <span class="number">580</span>(长沙--&gt;成都) + <span class="number">580</span>(成都--&gt;长沙) = <span class="number">1519.5</span> - <span class="number">200</span>
+预计油费: <span class="number">1200</span> - <span class="number">150</span> =  <span class="number">1050</span>
+预计住宿费: <span class="number">1400</span> - <span class="number">400</span> = <span class="number">1000</span>
+预计餐费:   <span class="number">1000</span>
+门票等其他: <span class="number">1000</span> - <span class="number">300</span> = <span class="number">700</span>
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.sleepbear.com/2015/09/13/中秋国庆川西甘南/" data-id="cieiaobaa0000b7x29xtgsrba" class="article-share-link">Share</a>
+      <a data-url="http://www.sleepbear.com/2015/09/13/中秋国庆川西甘南/" data-id="ciem5qw140000h2x2m51hesax" class="article-share-link">Share</a>
       
       
     </footer>
@@ -169,7 +228,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.sleepbear.com/2015/09/10/hello-world/" data-id="cieiaobc10002b7x2d9he576g" class="article-share-link">Share</a>
+      <a data-url="http://www.sleepbear.com/2015/09/10/hello-world/" data-id="ciem5qw200003h2x2555gfy8y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -214,7 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.sleepbear.com/2015/09/10/Android-on-x86/" data-id="cieiaobc40004b7x2iw58eges" class="article-share-link">Share</a>
+      <a data-url="http://www.sleepbear.com/2015/09/10/Android-on-x86/" data-id="ciem5qw230005h2x2l25ak4el" class="article-share-link">Share</a>
       
       
     </footer>
@@ -260,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.sleepbear.com/2015/09/09/setting-up-blog-environment-for-mac/" data-id="cieiaobbq0001b7x2ba2buqji" class="article-share-link">Share</a>
+      <a data-url="http://www.sleepbear.com/2015/09/09/setting-up-blog-environment-for-mac/" data-id="ciem5qw1w0001h2x2vtb56382" class="article-share-link">Share</a>
       
       
     </footer>
@@ -301,7 +360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.sleepbear.com/2015/09/09/develop-environment/" data-id="cieiaobc30003b7x2c0vd19s0" class="article-share-link">Share</a>
+      <a data-url="http://www.sleepbear.com/2015/09/09/develop-environment/" data-id="ciem5qw210004h2x2dcdvzqqb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -341,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.sleepbear.com/2015/08/16/5-years/" data-id="cieiaobc60005b7x208l7a9h5" class="article-share-link">Share</a>
+      <a data-url="http://www.sleepbear.com/2015/08/16/5-years/" data-id="ciem5qw250006h2x2p9u0349i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -366,7 +425,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -376,6 +435,10 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/09/16/logrotate/">logrotate</a>
+          </li>
         
           <li>
             <a href="/2015/09/13/中秋国庆川西甘南/">中秋国庆川西甘南</a>
@@ -391,10 +454,6 @@
         
           <li>
             <a href="/2015/09/09/setting-up-blog-environment-for-mac/">setting up blog environment for mac</a>
-          </li>
-        
-          <li>
-            <a href="/2015/09/09/develop-environment/">develop environment</a>
           </li>
         
       </ul>
