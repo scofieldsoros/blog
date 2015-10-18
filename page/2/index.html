@@ -3,18 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>setting up blog environment for mac | Sleep Bear&#39;s blog</title>
+  <title>Sleep Bear&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="the process is pretty easy, but takes a little bit time, just be patient12345678910#install nodejs and the npmsudo brew install npm   # if homebrew not installed, install homebrew first# install hexos">
-<meta property="og:type" content="article">
-<meta property="og:title" content="setting up blog environment for mac">
-<meta property="og:url" content="http://www.sleepbear.com/2015/09/09/setting-up-blog-environment-for-mac/index.html">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sleep Bear's blog">
+<meta property="og:url" content="http://www.sleepbear.com/page/2/index.html">
 <meta property="og:site_name" content="Sleep Bear's blog">
-<meta property="og:description" content="the process is pretty easy, but takes a little bit time, just be patient12345678910#install nodejs and the npmsudo brew install npm   # if homebrew not installed, install homebrew first# install hexos">
-<meta property="og:updated_time" content="2015-09-09T13:22:05.000Z">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="setting up blog environment for mac">
-<meta name="twitter:description" content="the process is pretty easy, but takes a little bit time, just be patient12345678910#install nodejs and the npmsudo brew install npm   # if homebrew not installed, install homebrew first# install hexos">
+<meta name="twitter:title" content="Sleep Bear's blog">
+<meta name="twitter:description">
   
     <link rel="alternative" href="/atom.xml" title="Sleep Bear&#39;s blog" type="application/atom+xml">
   
@@ -60,7 +59,54 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-setting-up-blog-environment-for-mac" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-Android-on-x86" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/10/Android-on-x86/" class="article-date">
+  <time datetime="2015-09-09T22:59:09.000Z" itemprop="datePublished">2015-09-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/10/Android-on-x86/">Android on x86</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Install_android_x86_in_vmware_fusion">Install android x86 in vmware fusion</h3><p>acturally, the process is pretty simple, and there are dozens of articles introducing that.</p>
+<p>the probleam I have met when install Android on vmware is the Network adapter. I didn’t see the <em>eth0</em> interface when installed.</p>
+<p>after a little search, I found the solution. Pretty simple too.</p>
+<ol>
+<li>create the Android system first, don’t start it immediately</li>
+<li>edit the <em>XXX.vmx</em> file in the VM’s directory.</li>
+<li>change the line <em>ethernet0.virtualDev = “e1000”</em> to <em>ethernet0.virtualDev = “vlance”</em> and save the file</li>
+<li>start the VM. There should be a network adaptor called <em>eth0</em> now. If the network type is set to NAT, the VM should have internet connection already, if now, just do some configuration.</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.sleepbear.com/2015/09/10/Android-on-x86/" data-id="cifwmblwm000n0ax2zxk6r1rv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-setting-up-blog-environment-for-mac" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/09/09/setting-up-blog-environment-for-mac/" class="article-date">
   <time datetime="2015-09-09T12:17:06.000Z" itemprop="datePublished">2015-09-09</time>
@@ -73,8 +119,8 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      setting up blog environment for mac
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/09/setting-up-blog-environment-for-mac/">setting up blog environment for mac</a>
     </h1>
   
 
@@ -102,29 +148,96 @@
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2015/09/10/Android-on-x86/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Android on x86
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/09/09/develop-environment/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">develop environment</div>
-    </a>
-  
-</nav>
+</article>
 
+
+  
+    <article id="post-develop-environment" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/09/develop-environment/" class="article-date">
+  <time datetime="2015-09-09T12:16:34.000Z" itemprop="datePublished">2015-09-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/09/develop-environment/">develop environment</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="setting_up_vim">setting up vim</h2><p>TODO</p>
+<h2 id="setting_up_git">setting up git</h2><h3 id="install_git-complete">install git-complete</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash</span><br><span class="line">chmod a+x git-completion.bash</span><br><span class="line">mv git-completion.bash /etc/bash_completion.d/   <span class="comment"># or anywhere else</span></span><br></pre></td></tr></table></figure>
+<h3 id="setting_configs">setting configs</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global color.ui auto</span><br><span class="line">git config --global user.name <span class="string">"my name"</span></span><br><span class="line">git config --global user.email <span class="string">"my email"</span></span><br></pre></td></tr></table></figure>
+<p> edit the ~/.bash_profile, add <code>source /etc/bash_completion.d/git-completion.bash</code></p>
+<p>logout and login, and it’s done</p>
+<h3 id="WHAT_ELSE_??">WHAT ELSE ??</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.sleepbear.com/2015/09/09/develop-environment/" data-id="cifwmblwl000m0ax29vm10qxk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
   
 </article>
 
+
+  
+    <article id="post-5-years" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/16/5-years/" class="article-date">
+  <time datetime="2015-08-16T04:27:09.000Z" itemprop="datePublished">2015-08-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/16/5-years/">5年陈!</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://7xl4r6.com1.z0.glb.clouddn.com/pic5_years.png" alt="5-years"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"##############################\n"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"#####  Long term love!   #####\n"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"##############################\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xl4r6.com1.z0.glb.clouddn.com/picimage.jpg" alt="tent-lake"></p>
+<p><img src="http://7xl4r6.com1.z0.glb.clouddn.com/picIMG_0263.JPG" alt="sunshine"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.sleepbear.com/2015/08/16/5-years/" data-id="cifwmblwo000o0ax2brnud6we" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 </section>
         
           <aside id="sidebar">

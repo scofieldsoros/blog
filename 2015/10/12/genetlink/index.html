@@ -3,21 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android on x86 | Sleep Bear&#39;s blog</title>
+  <title>genetlink.md | Sleep Bear&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Install android x86 in vmware fusionacturally, the process is pretty simple, and there are dozens of articles introducing that.
-the probleam I have met when install Android on vmware is the Network ad">
+  <meta name="description" content="first, how doit or dumpit is called when user app send a request to the kernel
+the call chain is a big long:
+
+when the genetlink initiaized, “genl_init” is called, and it call“err = register_pernet_su">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android on x86">
-<meta property="og:url" content="http://www.sleepbear.com/2015/09/10/Android-on-x86/index.html">
+<meta property="og:title" content="genetlink.md">
+<meta property="og:url" content="http://www.sleepbear.com/2015/10/12/genetlink/index.html">
 <meta property="og:site_name" content="Sleep Bear's blog">
-<meta property="og:description" content="Install android x86 in vmware fusionacturally, the process is pretty simple, and there are dozens of articles introducing that.
-the probleam I have met when install Android on vmware is the Network ad">
-<meta property="og:updated_time" content="2015-09-09T23:15:46.000Z">
+<meta property="og:description" content="first, how doit or dumpit is called when user app send a request to the kernel
+the call chain is a big long:
+
+when the genetlink initiaized, “genl_init” is called, and it call“err = register_pernet_su">
+<meta property="og:updated_time" content="2015-10-14T02:25:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android on x86">
-<meta name="twitter:description" content="Install android x86 in vmware fusionacturally, the process is pretty simple, and there are dozens of articles introducing that.
-the probleam I have met when install Android on vmware is the Network ad">
+<meta name="twitter:title" content="genetlink.md">
+<meta name="twitter:description" content="first, how doit or dumpit is called when user app send a request to the kernel
+the call chain is a big long:
+
+when the genetlink initiaized, “genl_init” is called, and it call“err = register_pernet_su">
   
     <link rel="alternative" href="/atom.xml" title="Sleep Bear&#39;s blog" type="application/atom+xml">
   
@@ -63,10 +69,10 @@ the probleam I have met when install Android on vmware is the Network ad">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Android-on-x86" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-genetlink" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/09/10/Android-on-x86/" class="article-date">
-  <time datetime="2015-09-09T22:59:09.000Z" itemprop="datePublished">2015-09-10</time>
+    <a href="/2015/10/12/genetlink/" class="article-date">
+  <time datetime="2015-10-12T15:46:44.000Z" itemprop="datePublished">2015-10-12</time>
 </a>
     
   </div>
@@ -77,7 +83,7 @@ the probleam I have met when install Android on vmware is the Network ad">
         
   
     <h1 class="article-title" itemprop="name">
-      Android on x86
+      genetlink.md
     </h1>
   
 
@@ -85,20 +91,19 @@ the probleam I have met when install Android on vmware is the Network ad">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Install_android_x86_in_vmware_fusion">Install android x86 in vmware fusion</h3><p>acturally, the process is pretty simple, and there are dozens of articles introducing that.</p>
-<p>the probleam I have met when install Android on vmware is the Network adapter. I didn’t see the <em>eth0</em> interface when installed.</p>
-<p>after a little search, I found the solution. Pretty simple too.</p>
+        <p>first, how doit or dumpit is called when user app send a request to the kernel</p>
+<p>the call chain is a big long:</p>
 <ol>
-<li>create the Android system first, don’t start it immediately</li>
-<li>edit the <em>XXX.vmx</em> file in the VM’s directory.</li>
-<li>change the line <em>ethernet0.virtualDev = “e1000”</em> to <em>ethernet0.virtualDev = “vlance”</em> and save the file</li>
-<li>start the VM. There should be a network adaptor called <em>eth0</em> now. If the network type is set to NAT, the VM should have internet connection already, if now, just do some configuration.</li>
+<li>when the genetlink initiaized, “genl_init” is called, and it call<br>“err = register_pernet_subsys(&amp;genl_pernet_ops);”, the genl_pernet_ops<br>is defined as follows:<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">struct</span> pernet_operations genl_pernet_ops = &#123;</span><br><span class="line">    .init = genl_pernet_init,</span><br><span class="line">    .<span class="built_in">exit</span> = genl_pernet_exit,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
+<p>and the genl_pernet_init has a “netlink_kernel_cfg”:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">static int __net_init genl_pernet_init(struct net *net)</span><br><span class="line">&#123;</span><br><span class="line">    struct netlink_kernel_cfg cfg = &#123;</span><br><span class="line">        .input      = genl_rcv,</span><br><span class="line">        .flags      = NL_CFG_F_NONROOT_RECV,</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    /* we'll bump the group number right afterwards */</span><br><span class="line">    net-&gt;genl_sock = netlink_kernel_create(net, NETLINK_GENERIC, &amp;cfg);</span><br><span class="line"></span><br><span class="line">    if (!net-&gt;genl_sock &amp;&amp; net_eq(net, &amp;init_net))</span><br><span class="line">        panic("GENL: Cannot initialize generic netlink\n");</span><br><span class="line"></span><br><span class="line">    if (!net-&gt;genl_sock)</span><br><span class="line">        return -ENOMEM;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>and this “netlink_kernel_cfg” set input handler to “genl_rcv”, so when a<br>packet received with</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.sleepbear.com/2015/09/10/Android-on-x86/" data-id="cifwmblwm000n0ax2zxk6r1rv" class="article-share-link">Share</a>
+      <a data-url="http://www.sleepbear.com/2015/10/12/genetlink/" data-id="cifwmblwj000l0ax2inj3bb3a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -107,19 +112,19 @@ the probleam I have met when install Android on vmware is the Network ad">
     
 <nav id="article-nav">
   
-    <a href="/2015/09/13/中秋国庆川西甘南/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/10/18/shadowsock-小米路由器/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          中秋国庆川西甘南
+          shadowsocks 小米路由器
         
       </div>
     </a>
   
   
-    <a href="/2015/09/09/setting-up-blog-environment-for-mac/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/10/09/skb/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">setting up blog environment for mac</div>
+      <div class="article-nav-title">SKB</div>
     </a>
   
 </nav>

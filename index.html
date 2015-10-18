@@ -61,6 +61,395 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-shadowsock-小米路由器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/18/shadowsock-小米路由器/" class="article-date">
+  <time datetime="2015-10-18T12:57:13.000Z" itemprop="datePublished">2015-10-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/18/shadowsock-小米路由器/">shadowsocks 小米路由器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一般shadowsocks要配置server端(墙外),client端(任何可以直接访问的地方)、和浏览器端,<br>直接shadowsocks上购买的是服务端，client端可以在服务器端，也可以在本机或者其他地方.<br>这里介绍本地安装设置和在小米路由器mini上安装设置，以及浏览器上的配置方法.</p>
+<h2 id="shadowsocks本地">shadowsocks本地</h2><p>本地设置很简单，python版的如果有安装pip，执行<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install shadowsocks</span><br></pre></td></tr></table></figure></p>
+<p>运行方法，config为配置参数,配置参数也可以直接通过参数输入:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sslocal -c config.json</span><br></pre></td></tr></table></figure></p>
+<h2 id="shadowsocks小米路由器mini版：">shadowsocks小米路由器mini版：</h2><p>官方论坛有一个教程，有已经编译好现成client，下下来用就行了<br>链接:<a href="http://www.miui.com/thread-1843323-1-1.html" target="_blank" rel="external">http://www.miui.com/thread-1843323-1-1.html</a></p>
+<h3 id="安装方法：">安装方法：</h3><ol>
+<li>将小米路由器mini 刷成开发版</li>
+<li><p>给安装小米路由器mini ssh.<br><a href="http://www.miwifi.com/miwifi_open.html" target="_blank" rel="external">http://www.miwifi.com/miwifi_open.html</a> —&gt; “开启ssh”工具(需要绑定的账号)</p>
+</li>
+<li><p>将ss-local 拷贝到/user下某个有写权限的目录，并将相应json配置文件拷贝到/etc/下</p>
+</li>
+<li>将ss-local启动命令添加到开机启动脚本/etc/rc.local中</li>
+</ol>
+<h2 id="本地浏览器设置方法">本地浏览器设置方法</h2><ol>
+<li>chrome浏览器安装SwitchySharp插件<ol>
+<li>如果能访问chrome应用商店，直接在chrome应用商店搜索安装即可</li>
+<li>如果不能访问chrome应用商店，下载安装文件,手动安装.<a href="http://www.switchysharp.com/install.html" target="_blank" rel="external">安装教程</a></li>
+</ol>
+</li>
+<li>配置SwitchySharp<ol>
+<li>配置情景模式，新建一个情景模式，名称譬如叫’home’(名称无所谓，便于识别而已)，地址填配置的shadowsocks<br>本地client地址，端口填本地client使用的端口，类型选sock v5. <img src="http://7xl4r6.com1.z0.glb.clouddn.com/gitblog-switchysharp_config_1_2015-10-18.png" alt="配置情景模式"></li>
+<li>配置切换规则.<br>新建一条规则，与图片中的一样即可，名称叫googlecode.com，URL模式填”*.googlecode.com”,情景模式选刚刚新建的情景模式，这里是home。下面的在线规则列表填 <a href="https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt" target="_blank" rel="external">https://autoproxy-gfwlist.googlecode.com/svn/trunk/gfwlist.txt</a> ，情景模式也悬home。并将三个勾勾上。最后点保存，在点立即更新列表，看能否更新成功，如果能更新成功，说明可以连上，那就基本上大功告成了，如果更新失败，很有可能是刚刚填的sock代理地址连不上。<br><img src="http://7xl4r6.com1.z0.glb.clouddn.com/gitblog-switchysharp_config_2_2015-10-18.png" alt="配置切换规则"></li>
+<li>最后点chrome右上角的swithysharp图标，选自动切换模式。然后就是看墙外的世界啦!。<img src="http://7xl4r6.com1.z0.glb.clouddn.com/gitblog-switchysharp_config_3_2015-10-18.png" alt=""></li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.sleepbear.com/2015/10/18/shadowsock-小米路由器/" data-id="cifwmblw5000c0ax222q091ar" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shadowsocks/">shadowsocks</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-genetlink" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/12/genetlink/" class="article-date">
+  <time datetime="2015-10-12T15:46:44.000Z" itemprop="datePublished">2015-10-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/12/genetlink/">genetlink.md</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>first, how doit or dumpit is called when user app send a request to the kernel</p>
+<p>the call chain is a big long:</p>
+<ol>
+<li>when the genetlink initiaized, “genl_init” is called, and it call<br>“err = register_pernet_subsys(&amp;genl_pernet_ops);”, the genl_pernet_ops<br>is defined as follows:<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">struct</span> pernet_operations genl_pernet_ops = &#123;</span><br><span class="line">    .init = genl_pernet_init,</span><br><span class="line">    .<span class="built_in">exit</span> = genl_pernet_exit,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>and the genl_pernet_init has a “netlink_kernel_cfg”:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">static int __net_init genl_pernet_init(struct net *net)</span><br><span class="line">&#123;</span><br><span class="line">    struct netlink_kernel_cfg cfg = &#123;</span><br><span class="line">        .input      = genl_rcv,</span><br><span class="line">        .flags      = NL_CFG_F_NONROOT_RECV,</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    /* we'll bump the group number right afterwards */</span><br><span class="line">    net-&gt;genl_sock = netlink_kernel_create(net, NETLINK_GENERIC, &amp;cfg);</span><br><span class="line"></span><br><span class="line">    if (!net-&gt;genl_sock &amp;&amp; net_eq(net, &amp;init_net))</span><br><span class="line">        panic("GENL: Cannot initialize generic netlink\n");</span><br><span class="line"></span><br><span class="line">    if (!net-&gt;genl_sock)</span><br><span class="line">        return -ENOMEM;</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>and this “netlink_kernel_cfg” set input handler to “genl_rcv”, so when a<br>packet received with</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.sleepbear.com/2015/10/12/genetlink/" data-id="cifwmblwj000l0ax2inj3bb3a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-skb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/09/skb/" class="article-date">
+  <time datetime="2015-10-09T07:31:10.000Z" itemprop="datePublished">2015-10-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/09/skb/">SKB</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="skb_operations">skb operations</h3><ol>
+<li><p>skb structure</p>
+<p><img src="http://vger.kernel.org/~davem/skb_layout.png" alt="skb"></p>
+</li>
+<li><p>skb_put/skb_push/skb_pull<br><code>skb_put</code>:     put some data to the skb, increase the tail<br><code>skb_push</code>:    push some data to the head, decrease the data. Caller should make sure the head has enough space<br><code>skb_pull</code>:    </p>
+</li>
+</ol>
+<ol>
+<li>skb-&gt;data_len/skb-&gt;len</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.sleepbear.com/2015/10/09/skb/" data-id="cifwmblw200090ax2xzdgp44u" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/skb/">skb</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-netlink-message-data-structure" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/25/netlink-message-data-structure/" class="article-date">
+  <time datetime="2015-09-25T07:23:31.000Z" itemprop="datePublished">2015-09-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/25/netlink-message-data-structure/">netlink message data structure</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>(defined in include/net/netlink.h)</p>
+<h3 id="1-_Whole_netlink_msg_structure">1.  Whole netlink msg structure</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    NLMSG_HDR    |      Family_HDR     |         Attributes(more than <span class="number">1</span>)        |</span><br><span class="line">+---------+ ---- + ------------- + --- + ----------- + --- + ------------ + --- +------ - - - -</span><br><span class="line">| nlmsghdr|  pad | Family Header | pad | attr header | pad | attr payload | pad |  nlmsghdr</span><br><span class="line">+---------+ ---- + ------------- + --- + ----------- + --- + ------------ + --- +------ - - - -</span><br><span class="line">                 |                     |                                        |</span><br><span class="line">&lt;---------------------------------- nlmsg_len ---------------------------------&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="2-_nlmsg">2. nlmsg</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*    &lt;--- nlmsg_total_size(payload)  ---&gt;                     </span><br><span class="line">*    &lt;-- nlmsg_msg_size(payload) -&gt;</span><br><span class="line">*   +----------+- - -+-------------+- - -+-------- - -</span><br><span class="line">*   | nlmsghdr | Pad |   Payload   | Pad | nlmsghdr</span><br><span class="line">*   +----------+- - -+-------------+- - -+-------- - -</span><br><span class="line">*   nlmsg_data(nlh)---^                   ^</span><br><span class="line">*   nlmsg_next(nlh)-----------------------+</span><br></pre></td></tr></table></figure>
+<h4 id="2-1_nlmsghdr_definition">2.1 nlmsghdr definition</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> nlmsghdr &#123;</span><br><span class="line">    __u32       nlmsg_len;  <span class="comment">/* Length of message including header. */</span></span><br><span class="line">    __u16       nlmsg_type; <span class="comment">/* Message content */</span></span><br><span class="line">    __u16       nlmsg_flags;    <span class="comment">/* Additional flags */</span></span><br><span class="line">    __u32       nlmsg_seq;  <span class="comment">/* Sequence number */</span></span><br><span class="line">    __u32       nlmsg_pid;  <span class="comment">/* Sending process port ID */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><code>nlmsg_len</code>: total length of the netlink message, the kernel handle the netlink message by this length<br><code>nlmsg_type</code>: the nlmsg_type can be the following reserved types or the family ID of the netlink message</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLMSG_NOOP      <span class="number">0x1</span> <span class="comment">/* Nothing.     */</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLMSG_ERROR     <span class="number">0x2</span> <span class="comment">/* Error        */</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLMSG_DONE      <span class="number">0x3</span> <span class="comment">/* End of a dump    */</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLMSG_OVERRUN       <span class="number">0x4</span> <span class="comment">/* Data lost        */</span></span></span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLMSG_MIN_TYPE      <span class="number">0x10</span>    <span class="comment">/* &lt; 0x10: reserved control messages */</span></span></span><br></pre></td></tr></table></figure>
+<p><code>nlmsg_flags</code>:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Flags values */</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLM_F_REQUEST       <span class="number">1</span>   <span class="comment">/* It is request message.   */</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLM_F_MULTI     <span class="number">2</span>   <span class="comment">/* Multipart message, terminated by NLMSG_DONE */</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLM_F_ACK       <span class="number">4</span>   <span class="comment">/* Reply with ack, with zero or error code */</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLM_F_ECHO      <span class="number">8</span>   <span class="comment">/* Echo this request        */</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLM_F_DUMP_INTR     <span class="number">16</span>  <span class="comment">/* Dump was inconsistent due to sequence change */</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* Modifiers to GET request */</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLM_F_ROOT  <span class="number">0x100</span>   <span class="comment">/* specify tree root    */</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLM_F_MATCH <span class="number">0x200</span>   <span class="comment">/* return all matching  */</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLM_F_ATOMIC    <span class="number">0x400</span>   <span class="comment">/* atomic GET       */</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLM_F_DUMP  (NLM_F_ROOT|NLM_F_MATCH)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* Modifiers to NEW request */</span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLM_F_REPLACE   <span class="number">0x100</span>   <span class="comment">/* Override existing        */</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLM_F_EXCL  <span class="number">0x200</span>   <span class="comment">/* Do not touch, if it exists   */</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLM_F_CREATE    <span class="number">0x400</span>   <span class="comment">/* Create, if it does not exist */</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> NLM_F_APPEND    <span class="number">0x800</span>   <span class="comment">/* Add to end of list       */</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="3-_nlmsg_payload">3. nlmsg payload</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">*    &lt;---------------------- nlmsg_len(nlh) ---------------------&gt;</span><br><span class="line">*    &lt;------ hdrlen ------&gt;       &lt;- nlmsg_attrlen(nlh, hdrlen) -&gt;</span><br><span class="line">*   +----------------------+- - -+--------------------------------+</span><br><span class="line">*   |     Family Header    | Pad |           Attributes           |</span><br><span class="line">*   +----------------------+- - -+--------------------------------+</span><br><span class="line">*   nlmsg_attrdata(nlh, hdrlen)---^</span><br></pre></td></tr></table></figure>
+<h3 id="4-_Attributes">4. Attributes</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*    &lt;------- nla_total_size(payload) -------&gt;</span><br><span class="line">*    &lt;---- nla_attr_size(payload) -----&gt;</span><br><span class="line">*   +----------+- - -+- - - - - - - - - +- - -+-------- - -</span><br><span class="line">*   |  Header  | Pad |     Payload      | Pad |  Header</span><br><span class="line">*   +----------+- - -+- - - - - - - - - +- - -+-------- - -</span><br><span class="line">*                     &lt;- nla_len(nla) -&gt;      ^</span><br><span class="line">*   nla_data(nla)----^                        |</span><br><span class="line">*   nla_next(nla)-----------------------------'</span><br></pre></td></tr></table></figure>
+<p>the length field included in the nlmsghdr &amp; genlmsghdr &amp; nlattr all means<br>the whole length of the message, including the message data and header.</p>
+<p>it seems that the function is always named XXX_verb_noun, and macro is always<br>named XXX_noun_verb format.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.sleepbear.com/2015/09/25/netlink-message-data-structure/" data-id="cifwmblwb000i0ax2dejlapup" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-write-a-kernel-user-netlink-application" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/23/write-a-kernel-user-netlink-application/" class="article-date">
+  <time datetime="2015-09-23T14:46:18.000Z" itemprop="datePublished">2015-09-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/23/write-a-kernel-user-netlink-application/">write a kernel-user netlink application</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="kernel_part">kernel part</h3><h3 id="user_part">user part</h3><p>get family ID from kernel</p>
+<p>to get all the family info from kernel, just need to send<br>a general netlink message to the kernel using GENL_ID_CTRL nlmsg_type,<br>, NLMSG_F_REQUEST flag,general netlink headers’ command<br>should be set to CTRL_CMD_GETFAMILY, and pass an attribute,<br>the attribute can be FAMILY_NAME or FAMILY_ID, any type is OK<br>the kernel will return </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.sleepbear.com/2015/09/23/write-a-kernel-user-netlink-application/" data-id="cifwmblvw00030ax2n6oyjhsh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/netlink/">netlink</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-netlink-realization-analysis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/22/netlink-realization-analysis/" class="article-date">
+  <time datetime="2015-09-22T15:03:05.000Z" itemprop="datePublished">2015-09-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/22/netlink-realization-analysis/">netlink 整体结构分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基于2.6.32内核</p>
+<h3 id="netlink主要相关文件">netlink主要相关文件</h3><p>net/netlink/af_netlink.c<br>net/netlink/genetlink.c</p>
+<p>include/linux/genetlink.h<br>include/linux/netlink.h<br>include/net/netlink.h<br>include/net/genetlink.h</p>
+<p>头文件中linux下的主要是定义一些宏定义、数据结构，net下的主要定义接口API</p>
+<h3 id="关键数据结构">关键数据结构</h3><p>nl_table<br>netlink_sock</p>
+<p>另外还有两个重要数据结构struct sock和struct socket</p>
+<h3 id="流程分析">流程分析</h3><p>首先是netlink_proto_init, 改函数通过core_initcall调用，而这个就在整个内核最开始初始化的时候做的</p>
+<p>netlink_proto_init主要做了3件事</p>
+<ol>
+<li>proto_register(&amp;netlink_proto, 0)</li>
+<li>初始化nl_table已经nl_table的hash捅</li>
+<li>sock_register(&amp;netlink_family_ops)</li>
+<li>register_pernet_subsys(&amp;netlink_net_ops)</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> __<span class="function">init <span class="title">netlink_proto_init</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">struct</span> sk_buff *dummy_skb;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> limit;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> order;</span><br><span class="line">    <span class="keyword">int</span> err = proto_register(&amp;netlink_proto, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (err != <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">goto</span> out;</span><br><span class="line"></span><br><span class="line">    BUILD_BUG_ON(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> netlink_skb_parms) &gt; <span class="keyword">sizeof</span>(dummy_skb-&gt;cb));</span><br><span class="line"></span><br><span class="line">    nl_table = kcalloc(MAX_LINKS, <span class="keyword">sizeof</span>(*nl_table), GFP_KERNEL);</span><br><span class="line">    <span class="keyword">if</span> (!nl_table)</span><br><span class="line">        <span class="keyword">goto</span> panic;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (totalram_pages &gt;= (<span class="number">128</span> * <span class="number">1024</span>))</span><br><span class="line">        limit = totalram_pages &gt;&gt; (<span class="number">21</span> - PAGE_SHIFT);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        limit = totalram_pages &gt;&gt; (<span class="number">23</span> - PAGE_SHIFT);</span><br><span class="line"></span><br><span class="line">    order = get_bitmask_order(limit) - <span class="number">1</span> + PAGE_SHIFT;</span><br><span class="line">    limit = (<span class="number">1U</span>L &lt;&lt; order) / <span class="keyword">sizeof</span>(<span class="keyword">struct</span> hlist_head);</span><br><span class="line">    order = get_bitmask_order(min(limit, (<span class="keyword">unsigned</span> <span class="keyword">long</span>)UINT_MAX)) - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; MAX_LINKS; i++) &#123;</span><br><span class="line">        <span class="keyword">struct</span> nl_pid_hash *hash = &amp;nl_table[i].hash;</span><br><span class="line"></span><br><span class="line">        hash-&gt;table = nl_pid_hash_zalloc(<span class="number">1</span> * <span class="keyword">sizeof</span>(*hash-&gt;table));</span><br><span class="line">        <span class="keyword">if</span> (!hash-&gt;table) &#123;</span><br><span class="line">            <span class="keyword">while</span> (i-- &gt; <span class="number">0</span>)</span><br><span class="line">                nl_pid_hash_free(nl_table[i].hash.table,</span><br><span class="line">                         <span class="number">1</span> * <span class="keyword">sizeof</span>(*hash-&gt;table));</span><br><span class="line">            kfree(nl_table);</span><br><span class="line">            <span class="keyword">goto</span> panic;</span><br><span class="line">        &#125;</span><br><span class="line">        hash-&gt;max_shift = order;</span><br><span class="line">        hash-&gt;shift = <span class="number">0</span>;</span><br><span class="line">        hash-&gt;mask = <span class="number">0</span>;</span><br><span class="line">        hash-&gt;rehash_time = jiffies;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sock_register(&amp;netlink_family_ops);</span><br><span class="line">    register_pernet_subsys(&amp;netlink_net_ops);</span><br><span class="line">    <span class="comment">/* The netlink device handler may be needed early. */</span></span><br><span class="line">    rtnetlink_init();</span><br><span class="line">out:</span><br><span class="line">    <span class="keyword">return</span> err;</span><br><span class="line">panic:</span><br><span class="line">    panic(<span class="string">"netlink_init: Cannot allocate nl_table\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>proto_register第二个参数alloc_slab由于传的是0，这里就干了一件事，那就是list_add(&amp;prot-&gt;node, &amp;proto_list),<br>就是将netlink添加到到内核的proto_list链表上，这个proto_list整个网络最顶层的协议族，与inet/inet6/unix socket<br>等一个级别上。</p>
+<p>af_netlink里的register_pernet_subsys 其实只是将netlink注册到了net_namespace，而传给net_namespace里的netlink_net_ops<br>只是创建了netlink 的proc文件，真正kernel socket的创建是在具体的netlink协议(如rtnetlink/genetlink)协议注册到net_namepsace<br>的时候调用的，如rtnetlink的rtnetlink_net_ops里的init指向rtnetlink_net_init，而这个rtnetlink_net_init调用了netlink_kernel_create:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1358</span> <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">rtnetlink_net_init</span><span class="params">(<span class="keyword">struct</span> net *net)</span></span><br><span class="line">1359 </span>&#123;</span><br><span class="line"><span class="number">1360</span>     <span class="keyword">struct</span> sock *sk;</span><br><span class="line"><span class="number">1361</span>     sk = netlink_kernel_create(net, NETLINK_ROUTE, RTNLGRP_MAX,</span><br><span class="line"><span class="number">1362</span>                    rtnetlink_rcv, &amp;rtnl_mutex, THIS_MODULE);</span><br><span class="line"><span class="number">1363</span>     <span class="keyword">if</span> (!sk)</span><br><span class="line"><span class="number">1364</span>         <span class="keyword">return</span> -ENOMEM;</span><br><span class="line"><span class="number">1365</span>     net-&gt;rtnl = sk;</span><br><span class="line"><span class="number">1366</span>     <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"><span class="number">1367</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>netlink_kernel_create最终真正创建了kernel socket，用于监听到达内核的消息</p>
+<p>nl_talbe表里存着各种netlink协议的相关信息，其索引号存在include/linux/netlink.h</p>
+<p>netlink_sendmsg最后通过netlink_unicast将数据包发送出去，如果是kernel socket，则会调用netlink_unicast_kernel，<br>然后netlink_kernel_create的时候将nlk-&gt;netlink_rcv赋予了input，而这个input函数指针是netlink_kernel_create的参数,<br>指向创建这个kenel socket的协议所定义的相应handler，对于rtnetlink来说就是rtnetlink_rcv.<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1358</span> <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">rtnetlink_net_init</span><span class="params">(<span class="keyword">struct</span> net *net)</span></span><br><span class="line">1359 </span>&#123;</span><br><span class="line"><span class="number">1360</span>     <span class="keyword">struct</span> sock *sk;</span><br><span class="line"><span class="number">1361</span>     sk = netlink_kernel_create(net, NETLINK_ROUTE, RTNLGRP_MAX,</span><br><span class="line"><span class="number">1362</span>                    rtnetlink_rcv, &amp;rtnl_mutex, THIS_MODULE);</span><br><span class="line"><span class="number">1363</span>     <span class="keyword">if</span> (!sk)</span><br><span class="line"><span class="number">1364</span>         <span class="keyword">return</span> -ENOMEM;</span><br><span class="line"><span class="number">1365</span>     net-&gt;rtnl = sk;</span><br><span class="line"><span class="number">1366</span>     <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"><span class="number">1367</span> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果这个socket是用户态的socket，则最后会调用netlink_sendskb，然后调__netlink_sendskb，最后将这个skb扔到socket的接收队列上去。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">826</span> <span class="keyword">static</span> <span class="keyword">int</span> __netlink_sendskb(<span class="keyword">struct</span> sock *sk, <span class="keyword">struct</span> sk_buff *skb)</span><br><span class="line"><span class="number">827</span> &#123;</span><br><span class="line"><span class="number">828</span>     <span class="keyword">int</span> len = skb-&gt;len;</span><br><span class="line"><span class="number">829</span></span><br><span class="line"><span class="number">830</span>     skb_queue_tail(&amp;sk-&gt;sk_receive_queue, skb);</span><br><span class="line"><span class="number">831</span>     sk-&gt;sk_data_ready(sk, len);</span><br><span class="line"><span class="number">832</span>     <span class="keyword">return</span> len;</span><br><span class="line"><span class="number">833</span> &#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.sleepbear.com/2015/09/22/netlink-realization-analysis/" data-id="cifwmblw9000g0ax20n3tme0i" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/netlink/">netlink</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/20/test/" class="article-date">
+  <time datetime="2015-09-20T12:48:12.000Z" itemprop="datePublished">2015-09-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/20/test/">test</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="this_is_the_real">this is the real</h1><blockquote>
+<p>hhahah </p>
+</blockquote>
+<p><img src="http://7xl4r6.com1.z0.glb.clouddn.com/gitblog-Plan_B.png" alt="picture"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.sleepbear.com/2015/09/20/test/" data-id="cifwmblvz00060ax2xr1stc33" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/19/hello-world/" class="article-date">
+  <time datetime="2015-09-19T07:59:26.000Z" itemprop="datePublished">2015-09-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/19/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.sleepbear.com/2015/09/19/hello-world/" data-id="cifwmblwg000k0ax2g6q097rc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-logrotate" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/09/16/logrotate/" class="article-date">
@@ -103,7 +492,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.sleepbear.com/2015/09/16/logrotate/" data-id="ciem5qw1y0002h2x28pq4r1gi" class="article-share-link">Share</a>
+      <a data-url="http://www.sleepbear.com/2015/09/16/logrotate/" data-id="cifwmblwf000j0ax22vhslzb2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -138,23 +527,19 @@
         <h3 id="行程计划">行程计划</h3><ul>
 <li><p>D0:<br>  2015-09-26 16:05 –&gt; 2015-09-27 09:35  <strong>K502 长沙-成都东</strong></p>
 </li>
-<li><p>D1:<br>  火车站租车点神州租车<br>  9.27   成都—&gt;松潘县</p>
+<li><p>D1:<br>  火车站租车点神州租车<br>  9.27   成都 –&gt; 都江堰 –&gt; 汶川 –&gt; 理县</p>
 </li>
-<li><p>D2:<br>  9.28   松潘县 –&gt; 九寨沟</p>
+<li><p>D2:<br>  9.28   理县 –&gt; 红原月亮湾</p>
 </li>
-<li><p>D3:<br>  9.29   九寨沟</p>
+<li><p>D3:<br>  9.29   红原月亮湾 –&gt; 唐克(黄河九曲)</p>
 </li>
-<li><p>D4:<br>  9.30   九寨沟—&gt;黄河九曲(唐克)</p>
+<li><p>D4:<br>  9.30   唐克 —-&gt; 若尔盖 –&gt; 郎木寺</p>
 </li>
-<li><p>D5:<br>  10.1   黄河九曲—&gt;若尔盖</p>
+<li><p>D5:<br>  10.1   郎木寺 -—&gt; 尕海 –&gt; 扎尕那 –&gt; 舟曲新城</p>
 </li>
-<li><p>D6:<br>  10.2   若尔盖—&gt; 花湖 —&gt;郎木寺</p>
+<li><p>D6:<br>  10.2   舟曲新城 –&gt; 成都</p>
 </li>
-<li><p>D7<br>  10.2   郎木寺–&gt;尕海 —&gt; 扎尕那</p>
-</li>
-<li><p>D8<br>  10.3 扎尕那 —&gt; 成都  (700KM)</p>
-</li>
-<li><p>D9<br>  10.4 成都–&gt;长沙<br>  2015-10-04 11:02 –&gt; 2015-10-05 07:55 <strong>K504 成都东–&gt;长沙</strong> </p>
+<li><p>D7<br>  10.3 成都–&gt;长沙<br>  2015-10-03 17:29 –&gt; 2015-10-04 10:22 <strong>Z124 成都–&gt;长沙</strong> </p>
 </li>
 </ul>
 <h3 id="路线">路线</h3><iframe src="http://www.google.cn/maps/embed?pb=!1m76!1m12!1m3!1d3391356.2830635034!2d103.59254563185134!3d32.15448383926805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m61!3e0!4m5!1s0x36efc52300447721%3A0xb98652ce2e240e02!2z5Zub5bed55yB5oiQ6YO9!3m2!1d30.572269!2d104.066541!4m5!1s0x36f75ee4828bc7f3%3A0x1187404ebc2b25b4!2z5Zub5bed55yB6Zi_5Z2d6JeP5peP576M5peP6Ieq5rK75bee5p2-5r2Y5Y6_!3m2!1d32.655325!2d103.604698!4m5!1s0x36f7bdf69e1c6729%3A0xc9fde8c8b5f60cc6!2z5Lmd5a-o5rKf5Zu95a625YWs5Zut!3m2!1d33.2600421!2d103.91859939999999!4m5!1s0x36f8ea584887077f%3A0x9487c3b48526110!2z6buE5rKz5Lmd5puy56ys5LiA5rm-!3m2!1d33.474258999999996!2d102.470833!4m5!1s0x36f865b9a17cb557%3A0x3aaa735fc506a9c6!2z5Zub5bed55yB6Zi_5Z2d6JeP5peP576M5peP6Ieq5rK75bee6Iul5bCU55uW5Y6_!3m2!1d33.575891999999996!2d102.961798!4m5!1s0x3657d30c052afd97%3A0xa237115dbd87e2d1!2z6Iqx5rmW6aOO5pmv5Yy6!3m2!1d33.948563199999995!2d102.84513869999999!4m5!1s0x365630912692f667%3A0x1fc1e247b5a250d4!2z55SY6IKD55yB55SY5Y2X6JeP5peP6Ieq5rK75bee56KM5puy5Y6_6YOO5pyo5a-66ZWH!3m2!1d34.090036!2d102.63680099999999!4m5!1s0x36561328b54f11c9%3A0xb5ec2a39b9be289d!2z5bCV5rW3!3m2!1d34.230658999999996!2d102.30626799999999!4m5!1s0x3657960bb8da9edb%3A0x776160d1461f224d!2z5omO5bCV6YKj!3m2!1d34.23815!2d103.192922!4m5!1s0x36efc52300447721%3A0xb98652ce2e240e02!2z5Zub5bed55yB5oiQ6YO9!3m2!1d30.572269!2d104.066541!5e1!3m2!1szh-CN!2scn!4v1442136663666" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -163,8 +548,8 @@
 <p>游玩路线可参考<a href="http://www.google.cn/maps/dir/%E5%9B%9B%E5%B7%9D%E7%9C%81%E6%88%90%E9%83%BD/%E5%9B%9B%E5%B7%9D%E7%9C%81%E9%98%BF%E5%9D%9D%E8%97%8F%E6%97%8F%E7%BE%8C%E6%97%8F%E8%87%AA%E6%B2%BB%E5%B7%9E%E6%9D%BE%E6%BD%98%E5%8E%BF/%E4%B9%9D%E5%AF%A8%E6%B2%9F%E5%9B%BD%E5%AE%B6%E5%85%AC%E5%9B%AD/%E9%BB%84%E6%B2%B3%E4%B9%9D%E6%9B%B2%E7%AC%AC%E4%B8%80%E6%B9%BE/%E5%9B%9B%E5%B7%9D%E7%9C%81%E9%98%BF%E5%9D%9D%E8%97%8F%E6%97%8F%E7%BE%8C%E6%97%8F%E8%87%AA%E6%B2%BB%E5%B7%9E%E8%8B%A5%E5%B0%94%E7%9B%96%E5%8E%BF/%E8%8A%B1%E6%B9%96%E9%A3%8E%E6%99%AF%E5%8C%BA/%E7%94%98%E8%82%83%E7%9C%81%E7%94%98%E5%8D%97%E8%97%8F%E6%97%8F%E8%87%AA%E6%B2%BB%E5%B7%9E%E7%A2%8C%E6%9B%B2%E5%8E%BF%E9%83%8E%E6%9C%A8%E5%AF%BA%E9%95%87/%E5%B0%95%E6%B5%B7/%E6%89%8E%E5%B0%95%E9%82%A3/%E5%9B%9B%E5%B7%9D%E7%9C%81%E6%88%90%E9%83%BD/@32.1544838,103.5925456,778789m/data=!3m1!1e3!4m62!4m61!1m5!1m1!1s0x36efc52300447721:0xb98652ce2e240e02!2m2!1d104.066541!2d30.572269!1m5!1m1!1s0x36f75ee4828bc7f3:0x1187404ebc2b25b4!2m2!1d103.604698!2d32.655325!1m5!1m1!1s0x36f7bdf69e1c6729:0xc9fde8c8b5f60cc6!2m2!1d103.9185994!2d33.2600421!1m5!1m1!1s0x36f8ea584887077f:0x9487c3b48526110!2m2!1d102.470833!2d33.474259!1m5!1m1!1s0x36f865b9a17cb557:0x3aaa735fc506a9c6!2m2!1d102.961798!2d33.575892!1m5!1m1!1s0x3657d30c052afd97:0xa237115dbd87e2d1!2m2!1d102.8451387!2d33.9485632!1m5!1m1!1s0x365630912692f667:0x1fc1e247b5a250d4!2m2!1d102.636801!2d34.090036!1m5!1m1!1s0x36561328b54f11c9:0xb5ec2a39b9be289d!2m2!1d102.306268!2d34.230659!1m5!1m1!1s0x3657960bb8da9edb:0x776160d1461f224d!2m2!1d103.192922!2d34.23815!1m5!1m1!1s0x36efc52300447721:0xb98652ce2e240e02!2m2!1d104.066541!2d30.572269!3e0" target="_blank" rel="external">Google地图</a></p>
 <h3 id="火车票">火车票</h3><pre><code><span class="number">1.</span> 杭州东--&gt;长沙 K1373 <span class="number">9</span>-<span class="number">25</span>  <span class="number">19</span>:<span class="number">55</span> --&gt; <span class="number">9</span>-<span class="number">26</span> <span class="number">11</span>:<span class="number">12</span>
 <span class="number">2.</span> 长沙--&gt;成都东 K502  <span class="number">9</span>-<span class="number">26</span>  <span class="number">16</span>:<span class="number">05</span> --&gt; <span class="number">9</span>-<span class="number">27</span> <span class="number">09</span>:<span class="number">35</span>
-<span class="number">3.</span> 成都东--&gt;长沙 k504  <span class="number">10</span>-<span class="number">04</span> <span class="number">11</span>:<span class="number">02</span> --&gt; <span class="number">10</span>-<span class="number">05</span> <span class="number">07</span>:<span class="number">55</span>
-</code></pre><h3 id="费用">费用</h3><pre><code>火车票: <span class="number">363.5</span>（杭州--&gt;长沙) + <span class="number">580</span>(长沙--&gt;成都) + <span class="number">580</span>(成都--&gt;长沙) = <span class="number">1519.5</span>
+<span class="number">3.</span> 成都东--&gt;长沙 Z124  <span class="number">10</span>-<span class="number">03</span> <span class="number">17</span>:<span class="number">29</span> --&gt; <span class="number">10</span>-<span class="number">05</span> <span class="number">10</span>:<span class="number">22</span>
+</code></pre><h3 id="预算">预算</h3><pre><code>火车票: <span class="number">363.5</span>（杭州--&gt;长沙) + <span class="number">580</span>(长沙--&gt;成都) + <span class="number">580</span>(成都--&gt;长沙) = <span class="number">1519.5</span>
 租车费: <span class="number">2635</span>
 预计油费: <span class="number">1200</span>
 预计住宿费: <span class="number">1400</span>
@@ -172,20 +557,21 @@
 门票等其他: <span class="number">1000</span>
 
 合计: <span class="number">7758.5</span>
+</code></pre><h3 id="实际费用">实际费用</h3><pre><code>油费: <span class="number">136.03</span>
+租车费: <span class="number">2635</span>
+现金:   <span class="number">1000</span> + <span class="number">350</span> = <span class="number">1350</span>
+火车票: <span class="number">363.5</span>（杭州--&gt;长沙) + <span class="number">580</span>(长沙--&gt;成都) + <span class="number">778</span>(成都--&gt;长沙) = <span class="number">1721.5</span> + <span class="number">478</span>(未赶上火车) = <span class="number">2199.5</span>
 
-租车费: <span class="number">2351</span>
-火车票: <span class="number">363.5</span>（杭州--&gt;长沙) + <span class="number">580</span>(长沙--&gt;成都) + <span class="number">580</span>(成都--&gt;长沙) = <span class="number">1519.5</span> - <span class="number">200</span>
-预计油费: <span class="number">1200</span> - <span class="number">150</span> =  <span class="number">1050</span>
-预计住宿费: <span class="number">1400</span> - <span class="number">400</span> = <span class="number">1000</span>
-预计餐费:   <span class="number">1000</span>
-门票等其他: <span class="number">1000</span> - <span class="number">300</span> = <span class="number">700</span>
+合计: <span class="number">6320</span>
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://www.sleepbear.com/2015/09/13/中秋国庆川西甘南/" data-id="ciem5qw140000h2x2m51hesax" class="article-share-link">Share</a>
+      <a data-url="http://www.sleepbear.com/2015/09/13/中秋国庆川西甘南/" data-id="cifwmblut00000ax2mgh74afa" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/travelling/">travelling</a></li></ul>
+
     </footer>
   </div>
   
@@ -193,223 +579,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/09/10/hello-world/" class="article-date">
-  <time datetime="2015-09-10T03:40:15.000Z" itemprop="datePublished">2015-09-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/10/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.sleepbear.com/2015/09/10/hello-world/" data-id="ciem5qw200003h2x2555gfy8y" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Android-on-x86" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/09/10/Android-on-x86/" class="article-date">
-  <time datetime="2015-09-09T22:59:09.000Z" itemprop="datePublished">2015-09-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/10/Android-on-x86/">Android on x86</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Install_android_x86_in_vmware_fusion">Install android x86 in vmware fusion</h3><p>acturally, the process is pretty simple, and there are dozens of articles introducing that.</p>
-<p>the probleam I have met when install Android on vmware is the Network adapter. I didn’t see the <em>eth0</em> interface when installed.</p>
-<p>after a little search, I found the solution. Pretty simple too.</p>
-<ol>
-<li>create the Android system first, don’t start it immediately</li>
-<li>edit the <em>XXX.vmx</em> file in the VM’s directory.</li>
-<li>change the line <em>ethernet0.virtualDev = “e1000”</em> to <em>ethernet0.virtualDev = “vlance”</em> and save the file</li>
-<li>start the VM. There should be a network adaptor called <em>eth0</em> now. If the network type is set to NAT, the VM should have internet connection already, if now, just do some configuration.</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.sleepbear.com/2015/09/10/Android-on-x86/" data-id="ciem5qw230005h2x2l25ak4el" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-setting-up-blog-environment-for-mac" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/09/09/setting-up-blog-environment-for-mac/" class="article-date">
-  <time datetime="2015-09-09T12:17:06.000Z" itemprop="datePublished">2015-09-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/09/setting-up-blog-environment-for-mac/">setting up blog environment for mac</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="the_process_is_pretty_easy,_but_takes_a_little_bit_time,_just_be_patient">the process is pretty easy, but takes a little bit time, just be patient</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#install nodejs and the npm</span></span><br><span class="line">sudo brew install npm   <span class="comment"># if homebrew not installed, install homebrew first</span></span><br><span class="line"><span class="comment"># install hexo</span></span><br><span class="line">sudo npm install hexo-cli -g</span><br><span class="line">sudo npm install hexo --save</span><br><span class="line">sudo npm install hexo-server --save</span><br><span class="line"><span class="comment"># clone the source code</span></span><br><span class="line">git <span class="built_in">clone</span> git@github.com:scofieldsoros/blog.git</span><br><span class="line"><span class="comment"># install hexo dependencies</span></span><br><span class="line">sudo npm install</span><br></pre></td></tr></table></figure>
-<p>after that, goto the blog directory and begin writing your blog. ^_^</p>
-<p><strong>some simple command of hexo</strong></p>
-<ol>
-<li>hexo new “title” # create a new blog page</li>
-<li>hexo generate   # generate static website files</li>
-<li>hexo server     # start the server, default port 4000</li>
-<li>hexo deploy      # deploy to github. already config in the _config.yml<br>hexo n == hexo new<br>hexo g == hexo generate<br>hexo s == hexo server<br>hexo d == hexo deploy</li>
-</ol>
-<p>after installed, we can just start the server (hexo s) and change the ‘title’.md and reload the page, change will be showed immidiately.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.sleepbear.com/2015/09/09/setting-up-blog-environment-for-mac/" data-id="ciem5qw1w0001h2x2vtb56382" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-develop-environment" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/09/09/develop-environment/" class="article-date">
-  <time datetime="2015-09-09T12:16:34.000Z" itemprop="datePublished">2015-09-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/09/develop-environment/">develop environment</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="setting_up_vim">setting up vim</h2><p>TODO</p>
-<h2 id="setting_up_git">setting up git</h2><h3 id="install_git-complete">install git-complete</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash</span><br><span class="line">chmod a+x git-completion.bash</span><br><span class="line">mv git-completion.bash /etc/bash_completion.d/   <span class="comment"># or anywhere else</span></span><br></pre></td></tr></table></figure>
-<h3 id="setting_configs">setting configs</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global color.ui auto</span><br><span class="line">git config --global user.name <span class="string">"my name"</span></span><br><span class="line">git config --global user.email <span class="string">"my email"</span></span><br></pre></td></tr></table></figure>
-<p> edit the ~/.bash_profile, add <code>source /etc/bash_completion.d/git-completion.bash</code></p>
-<p>logout and login, and it’s done</p>
-<h3 id="WHAT_ELSE_??">WHAT ELSE ??</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.sleepbear.com/2015/09/09/develop-environment/" data-id="ciem5qw210004h2x2dcdvzqqb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-5-years" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/16/5-years/" class="article-date">
-  <time datetime="2015-08-16T04:27:09.000Z" itemprop="datePublished">2015-08-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/16/5-years/">5年陈!</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://7xl4r6.com1.z0.glb.clouddn.com/pic5_years.png" alt="5-years"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"##############################\n"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"#####  Long term love!   #####\n"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"##############################\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://7xl4r6.com1.z0.glb.clouddn.com/picimage.jpg" alt="tent-lake"></p>
-<p><img src="http://7xl4r6.com1.z0.glb.clouddn.com/picIMG_0263.JPG" alt="sunshine"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://www.sleepbear.com/2015/08/16/5-years/" data-id="ciem5qw250006h2x2p9u0349i" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </section>
         
@@ -418,14 +591,28 @@
     
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/netlink/">netlink</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shadowsocks/">shadowsocks</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/skb/">skb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/travelling/">travelling</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/netlink/" style="font-size: 20px;">netlink</a> <a href="/tags/shadowsocks/" style="font-size: 10px;">shadowsocks</a> <a href="/tags/skb/" style="font-size: 10px;">skb</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/travelling/" style="font-size: 10px;">travelling</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -437,23 +624,23 @@
       <ul>
         
           <li>
-            <a href="/2015/09/16/logrotate/">logrotate</a>
+            <a href="/2015/10/18/shadowsock-小米路由器/">shadowsocks 小米路由器</a>
           </li>
         
           <li>
-            <a href="/2015/09/13/中秋国庆川西甘南/">中秋国庆川西甘南</a>
+            <a href="/2015/10/12/genetlink/">genetlink.md</a>
           </li>
         
           <li>
-            <a href="/2015/09/10/hello-world/">Hello World</a>
+            <a href="/2015/10/09/skb/">SKB</a>
           </li>
         
           <li>
-            <a href="/2015/09/10/Android-on-x86/">Android on x86</a>
+            <a href="/2015/09/25/netlink-message-data-structure/">netlink message data structure</a>
           </li>
         
           <li>
-            <a href="/2015/09/09/setting-up-blog-environment-for-mac/">setting up blog environment for mac</a>
+            <a href="/2015/09/23/write-a-kernel-user-netlink-application/">write a kernel-user netlink application</a>
           </li>
         
       </ul>
